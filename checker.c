@@ -1,37 +1,20 @@
 #include <stdio.h>
-#include <stdbool.h>
 #include <assert.h>
 
-bool isBatteryTempOk(float temperature) {
-    if (temperature < 0 || temperature > 45) {
-        printf("Temperature out of range!\n");
-        return false;
-    }
-    return true;
+int isInRange(float Value, float Min, float Max){
+	return (Value >= Min && Value <= Max);
 }
 
-bool isSocOk(float soc) {
-    if (soc < 20 || soc > 80) {
-        printf("State of Charge out of range!\n");
-        return false;
-    }
-    return true;
+int batteryIsOk(float temperature, float soc, float chargeRate){
+	!isInRange(temperature, 0, 45) && printf("Temperature out of range!\n");
+	!isInRange(soc, 20, 80) && printf("State of charge out of range!\n");
+	chargeRate > 0.8 && printf("Charge Rate out of range!\n");
+	
+	return isInRange(temperature, 0, 45) && isInRange(soc, 20,80) && chargeRate <= 0.8;
 }
 
-bool isChargeRateOk(float chargeRate) {
-    if (chargeRate > 0.8) {
-        printf("Charge Rate out of range!\n");
-        return false;
-    }
-    return true;
-}
-
-bool batteryIsOk(float temperature, float soc, float chargeRate) {
-    return isBatteryTempOk(temperature) && isSocOk(soc) && isChargeRateOk(chargeRate);
-}
-
-int main() {
-    assert(batteryIsOk(25, 70, 0.7));
-    assert(!batteryIsOk(50, 85, 0));
-    return 0;
+int main()
+{
+  assert(batteryIsOk(25, 70, 0.7));
+  assert(!batteryIsOk(50, 85, 0));
 }
