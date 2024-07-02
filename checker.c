@@ -6,8 +6,11 @@ int isInRange(float Value, float Min, float Max){
 }
 
 int batteryIsOk(float temperature, float soc, float chargeRate){
-	
-	return (isInRange(temperature, 0, 45) && isInRange(soc, 20,80) && chargeRate <= 0.8)?printf("Battery in Good condition :)\n"): printf("Battery in bad condition :)\n");
+	if((isInRange(temperature, 0, 45) && isInRange(soc, 20,80) && chargeRate <= 0.8)){
+		printf("Battery in Good condition :)\n"); 
+	}else{
+		printf("Battery in bad condition :)\n");
+	}
 }
 
 int main()
