@@ -7,11 +7,11 @@ return (temperature >= 0 && temperature <=45);
   }
  
 bool batsoc(float soc){
-  return (soc>=20 && soc<=80){
+  return (soc>=20 && soc<=80);
   }
  
 bool batchargeRate(float chargeRate){
-return (chargeRate<=0.8)
+return (chargeRate<=0.8);
    }
  
 bool batteryIsOk(float temperature, float soc, float chargeRate) {
