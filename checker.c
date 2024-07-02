@@ -1,19 +1,24 @@
 #include <stdio.h>
 #include <assert.h>
+#include <stdbool.h>
 
-int isInRange(float Value, float Min, float Max){
-	return (Value >= Min && Value <= Max);
+bool battemp(float temperature){
+return (temperature >= 0 && temperature <=45);
+  }
+ 
+bool batsoc(float soc){
+  return (soc>=20 && soc<=80){
+  }
+ 
+bool batchargeRate(float chargeRate){
+return (chargeRate<=0.8)
+   }
+ 
+bool batteryIsOk(float temperature, float soc, float chargeRate) {
+  return (battemp(temperature) || batsoc(soc) || batchargeRate(chargeRate));
 }
-
-int batteryIsOk(float temperature, float soc, float chargeRate){
-	if((isInRange(temperature, 0, 45) && isInRange(soc, 20,80) && chargeRate <= 0.8)){
-		printf("Battery in Good condition :)\n"); 
-	}else{
-		printf("Battery in bad condition :)\n");
-	}
-}
-
-int main()
-{
+ 
+int main() {
   assert(batteryIsOk(25, 70, 0.7));
+  assert(!batteryIsOk(50, 85, 0));
 }
