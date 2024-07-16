@@ -2,20 +2,20 @@
 #include <assert.h>
 #include <stdbool.h>
 
-bool battemp(float temperature){
+bool batteryTemperature(float temperature){
 return (temperature >= 0 && temperature <=45);
   }
  
-bool batsoc(float soc){
+bool batterySoc(float soc){
   return (soc>=20 && soc<=80);
   }
  
-bool batchargeRate(float chargeRate){
+bool batteryChargeRate(float chargeRate){
 return (chargeRate<=0.8);
    }
  
 bool batteryIsOk(float temperature, float soc, float chargeRate) {
-  return (battemp(temperature) || batsoc(soc) || batchargeRate(chargeRate));
+  return ((batteryTemperature(temperature) && printf("temperature is not okay");) || (batterySoc(soc) && printf("SOC is not okay");)  || (batteryChargeRate(chargeRate) && printf("charge rate is not okay");));
 }
  
 int main() {
