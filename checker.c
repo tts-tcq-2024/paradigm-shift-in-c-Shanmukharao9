@@ -15,7 +15,7 @@ return (chargeRate<=0.8);
    }
  
 bool batteryIsOk(float temperature, float soc, float chargeRate) {
-  return ((batteryTemperature(temperature) && printf("temperature is not okay");) || (batterySoc(soc) && printf("SOC is not okay");)  || (batteryChargeRate(chargeRate) && printf("charge rate is not okay");));
+  return (batteryTemperature(temperature)  || batterySoc(soc)  || batteryChargeRate(chargeRate));
 }
  
 int main() {
