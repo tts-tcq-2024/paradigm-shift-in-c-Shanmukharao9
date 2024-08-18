@@ -1,6 +1,6 @@
 #include <assert.h>
 #include "Battery_checker.h"
-#include "Testcases.h"
+#include "testcases.h"
 
 void testTemperatureBelowLowerLimit() {
     assert(!batteryIsOk(-2, 45, 0.8));
