@@ -35,7 +35,7 @@ void testApproachingDischarge() {
 }
 
 void testApproachingChargePeak() {
-    assert(batteryIsOk(20, 76, 0.6));
+    assert(batteryIsOk(20, 76, 0.76));
 }
 
 void testApproachingMaxChargeRate() {
